@@ -1,7 +1,11 @@
 Blog::Application.routes.draw do
 
-  resources :posts
+	resources :posts
   
-  root 'welcome#index'
+	root 'welcome#index'
+
+	resources :posts do
+  		resources :comments
+  	end
   
 end
