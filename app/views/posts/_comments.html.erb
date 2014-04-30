@@ -1,0 +1,22 @@
+<% if @post.comments.blank? %>
+	<p> No comments yet, be the first one!</p>
+<% else %>
+	<% @post.comments.each do |comment| %>
+		<% if (comment.commenter != nil and comment.body != nil) %>
+		  	<p>
+			    <strong>Commenter:</strong>
+			    <%= comment.commenter %>
+		  	</p>
+			 
+		  	<p>
+			    <strong>Comment:</strong>
+			    <%= comment.body %>
+		  	</p>
+		  	<p>
+				<%= link_to 'Destroy Comment', [comment.post, comment],
+               		method: :delete,
+            		data: { confirm: 'Are you sure?' } %>
+			</p>
+		<% end %>
+	<% end %>
+<% end %>

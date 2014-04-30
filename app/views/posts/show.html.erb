@@ -23,20 +23,6 @@
 <% end %>
 
 <h2>Comentarios</h2>
-<% if @post.comments.blank? %>
-	<p> No comments yet, be the first one!</p>
-<% else %>
-	<% @post.comments.each do |comment| %>
-	  	<p>
-		    <strong>Commenter:</strong>
-		    <%= comment.commenter %>
-	  	</p>
-		 
-	  	<p>
-		    <strong>Comment:</strong>
-		    <%= comment.body %>
-	  	</p>
-	<% end %>
-<% end %>
+<%=	 render 'comments' %>
 
 <%= link_to "Back", posts_path %>
